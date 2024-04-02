@@ -1,0 +1,360 @@
+@font-face {
+  font-family: "BaronNeue";
+  src: url('./assets/fonts/BaronNeue.otf');
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  list-style-type: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  line-height: 1;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  font-weight: 400;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+.container {
+  max-width: 1224px;
+  padding: 0 12px;
+  margin: 0 auto;
+}
+
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.change-pass__inner form input,
+.edit-settings__inner form input,
+.saved-data__pop-up form input,
+.new-data__pop-up form input,
+.checkout__add-product form input,
+.checkout-form form input,
+.checkout-form form textarea,
+.add__inner form input,
+.add__inner form textarea {
+  padding: 16px 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 16px;
+  font-family: "Mulish";
+  line-height: 20px;
+  border: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+
+.checkbox + label,
+.radio-btn1 + label,
+.radio-btn2 + label,
+.radio-btn3 + label,
+.radio-btn4 + label,
+.radio-btn5 + label,
+.radio-btn6 + label,
+.delivery-radio-btn1 + label,
+.delivery-radio-btn2 + label,
+.delivery-radio-btn3 + label,
+.rus-radio-btn1 + label,
+.rus-radio-btn2 + label,
+.rus-radio-btn3 + label,
+.insurance-radio-btn1 + label,
+.additional-functions__checkbox1 + label,
+.additional-functions__checkbox2 + label {
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox + label:before,
+.additional-functions__checkbox1 + label:before,
+.additional-functions__checkbox2 + label:before,
+.insurance-radio-btn1 + label::before {
+  content: "";
+  position: absolute;
+  font-size: 16px;
+  top: 2px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  background: #f3f3f6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: 1px solid rgb(40, 40, 44);
+  transition: 0.2s;
+}
+
+.radio-btn1 + label::before,
+.radio-btn2 + label::before,
+.radio-btn3 + label::before,
+.radio-btn4 + label::before,
+.radio-btn5 + label::before,
+.radio-btn6 + label::before {
+  top: 8px;
+}
+
+.delivery-radio-btn1 + label::before,
+.delivery-radio-btn2 + label::before,
+.delivery-radio-btn3 + label::before,
+.rus-radio-btn1 + label::before,
+.rus-radio-btn2 + label::before,
+.rus-radio-btn3 + label::before {
+  top: 2px;
+}
+
+.radio-btn1 + label::before,
+.radio-btn2 + label::before,
+.radio-btn3 + label::before,
+.radio-btn4 + label::before,
+.radio-btn5 + label::before,
+.radio-btn6 + label::before,
+.delivery-radio-btn1 + label::before,
+.delivery-radio-btn2 + label::before,
+.delivery-radio-btn3 + label::before,
+.rus-radio-btn1 + label::before,
+.rus-radio-btn2 + label::before,
+.rus-radio-btn3 + label::before {
+  content: "";
+  position: absolute;
+  font-size: 16px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background: #f3f3f6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: 1px solid rgb(40, 40, 44);
+  transition: 0.2s;
+}
+
+.radio-btn1:checked + label:before,
+.radio-btn2:checked + label:before,
+.radio-btn3:checked + label:before,
+.radio-btn4:checked + label:before,
+.radio-btn5:checked + label:before,
+.radio-btn6:checked + label:before,
+.delivery-radio-btn1:checked + label:before,
+.delivery-radio-btn2:checked + label:before,
+.delivery-radio-btn3:checked + label:before,
+.rus-radio-btn1:checked + label::before,
+.rus-radio-btn2:checked + label::before,
+.rus-radio-btn3:checked + label::before {
+  content: url(../images/radio-ellipse.svg);
+  border: 1px solid rgb(54, 106, 220);
+}
+
+.checkbox:checked + label:before,
+.additional-functions__checkbox1:checked + label:before,
+.additional-functions__checkbox2:checked + label:before,
+.insurance-radio-btn1:checked + label::before {
+  content: url(../images/checkbox.svg);
+  border: 1px solid rgb(54, 106, 220);
+}
+
+.checkbox + label,
+.additional-functions__checkbox1 + label,
+.additional-functions__checkbox2 + label,
+.insurance-radio-btn1 + label {
+  padding-left: 32px;
+  font-size: 16px;
+  font-family: "Mulish";
+  line-height: 20px;
+}
+
+
