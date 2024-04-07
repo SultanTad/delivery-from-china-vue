@@ -1,6 +1,6 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import Choices from "choices.js";
+import { ref } from "vue";
+import VueMultiselect from "vue-multiselect";
 
 import ShadowModals from "../components/ShadowModals.vue";
 
@@ -12,7 +12,23 @@ const activeEditSavedShadow = ref(false);
 const activeEditSavedWindow = ref(false);
 const activeNewDataShadow = ref(false);
 const activeNewDataWindow = ref(false);
-const select = ref(null);
+const selected = ref(null);
+const options = ref([
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+  "-14 часов",
+]);
 
 const activeChangePassModal = () => {
   activeChangePassShadow.value = true;
@@ -61,13 +77,6 @@ const closeNewDataModal = () => {
   activeNewDataWindow.value = false;
   document.body.style.overflow = "inherit";
 };
-
-onMounted(() => {
-  new Choices(select.value, {
-    searchEnabled: false,
-    itemSelectText: "",
-  });
-});
 </script>
 <template>
   <section class="personal-data">
@@ -206,7 +215,22 @@ onMounted(() => {
               type="text"
               placeholder="Адрес (улица, дом, квартира, индекс)"
             />
-            <select ref="select" type="text" class="js-choice">
+            <VueMultiselect
+              v-model="selected"
+              :options="options"
+              :readonly="true"
+              placeholder="Разница времени с Москвой"
+              :searchable="false"
+              :close-on-select="true"
+              :show-labels="false"
+            >
+            </VueMultiselect>
+            <!-- <select
+              ref="select"
+              type="text"
+              class="js-choice"
+              v-model="selected"
+            >
               <option value="">Разница времени с Москвой</option>
               <option value="">-14 часов</option>
               <option value="">-14 часов</option>
@@ -222,7 +246,7 @@ onMounted(() => {
               <option value="">-14 часов</option>
               <option value="">-14 часов</option>
               <option value="">-14 часов</option>
-            </select>
+            </select> -->
             <div class="notify-by-mail">
               <input type="checkbox" class="checkbox" id="checkbox" />
               <label for="checkbox"
@@ -391,7 +415,7 @@ onMounted(() => {
     </template>
   </ShadowModals>
 </template>
-
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>
 <style>
 .change-pass__inner {
   background-color: rgb(243, 243, 246);
@@ -574,11 +598,12 @@ onMounted(() => {
   color: rgb(54, 106, 220);
 }
 
-.choices {
+.multiselect__placeholder {
   margin-bottom: unset;
+  color: unset;
 }
 
-.choices__inner {
+.multiselect__tags {
   border: none;
   background-color: #fff;
   border-radius: 10px;
@@ -590,19 +615,29 @@ onMounted(() => {
   color: rgb(40, 40, 44);
 }
 
-.choices__list--dropdown {
-  padding: 20px;
+.multiselect--above .multiselect__content-wrapper {
+  padding: 20px 0 20px 20px;
   border-radius: 8px;
   background-color: #fff;
   border: none;
 }
 
-.choices__list--dropdown .choices__item--selectable.is-highlighted {
-  background-color: transparent;
+.multiselect__option--highlight {
+  background: transparent;
   color: rgb(54, 106, 220);
 }
 
-.choices__list--dropdown .choices__item {
+.multiselect--active .multiselect__placeholder {
+  display: block;
+}
+
+.multiselect--above.multiselect--active .multiselect__current,
+.multiselect--above.multiselect--active .multiselect__input,
+.multiselect--above.multiselect--active .multiselect__tags {
+  border-radius: 8px;
+}
+
+.multiselect__element {
   font-family: "Mulish";
   font-weight: 400;
   font-size: 16px;
@@ -610,15 +645,33 @@ onMounted(() => {
   color: rgb(159, 164, 175);
 }
 
-.choices__list--dropdown .choices__list::-webkit-scrollbar {
-  width: 4px;
-  background-color: rgb(243, 243, 246);
-  border-radius: 100px;
+.multiselect__content-wrapper::-webkit-scrollbar {
+  width: 24px;
 }
 
-.choices__list--dropdown .choices__list::-webkit-scrollbar-thumb {
+
+.multiselect__content-wrapper::-webkit-scrollbar-thumb {
   background-color: rgb(54, 106, 220);
+  border: 10px solid transparent;
   border-radius: 100px;
+  background-clip: padding-box;
+}
+
+.multiselect__input,
+.multiselect__single {
+  padding: unset;
+  width: unset;
+  margin-bottom: unset;
+}
+
+.multiselect__option--selected {
+  background: transparent;
+  font-weight: 400;
+}
+
+.multiselect__option--selected.multiselect__option--highlight {
+  background: transparent;
+  color: rgb(54, 106, 220);
 }
 
 .choices[data-type*="select-one"]:after {

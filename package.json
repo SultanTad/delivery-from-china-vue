@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "choices.js": "^10.2.0",
     "highcharts": "^11.4.0",
     "swiper": "^11.0.7",
     "vue": "^3.4.21",
+    "vue-multiselect": "^3.0.0-beta.3",
     "vue-router": "4"
   },
   "devDependencies": {
